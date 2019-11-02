@@ -1,0 +1,18 @@
+﻿@page "/"
+
+@using Microsoft.AspNetCore.Components.Server.Circuits
+@inject CircuitHandler CircuitHandlerService
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<p>
+    Number of Circuits: @((CircuitHandlerService as BlazorCircuitHandler.Services.CircuitHandlerService).Circuits.Count)
+    <ul>
+        @foreach (var circuit in (CircuitHandlerService as BlazorCircuitHandler.Services.CircuitHandlerService).Circuits)
+        {
+            <li>@circuit.Key</li>
+        }
+    </ul>
+</p>
